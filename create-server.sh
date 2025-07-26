@@ -18,13 +18,38 @@ curl -Lo linuxgsm.sh https://linuxgsm.sh && chmod +x linuxgsm.sh && bash linuxgs
 ./csgoserver install
 ./csgoserver mods-install
 ./csgoserver mods-install
-cd ./serverfiles/csgo
+
+
+### nolobbyreservation ###
+# plugin
+cd /home/csgoserver/serverfiles/csgo
 mkdir nolobby && cd nolobby && \
 	wget https://github.com/vanz666/NoLobbyReservation/releases/download/0.0.2/nolobbyreservation.zip && \
 	unzip nolobbyreservation.zip && \
 	mv ./addons/sourcemod/plugins/nolobbyreservation.smx ../addons/sourcemod/plugins/ && \
 	cd .. && rm -rf nolobby
+# files
 git clone https://github.com/eldoradoel/NoLobbyReservation && \
 	cp -r NoLobbyReservation/csgo/addons/sourcemod/* /home/csgoserver/serverfiles/csgo/addons/sourcemod/
+
+
+### weapons ###
+# weapons
+cd /home/csgoserver/serverfiles/csgo
+mkdir weapons && cd weapons && \
+	wget https://github.com/kgns/weapons/releases/download/v1.7.8/weapons-v1.7.8.zip && \
+ 	unzip weapons-v1.7.8.zip && \
+  	cp -r ./addons /home/csgoserver/serverfiles/csgo/ && \
+   	cd .. && rm -rf weapons
+# ptah
+cd /home/csgoserver/serverfiles/csgo
+mkdir ptah && cd ptah && \
+	wget https://github.com/komashchenko/PTaH/releases/download/v1.1.4/linux.zip && \
+	unzip linux.zip && \
+  	cp -r ./addons /home/csgoserver/serverfiles/csgo/ && \
+   	cd .. && rm -rf ptah
+  	
+
+### pull server files ###
 cp /home/csgoserver/wyha-server/csgoserver.cfg /home/csgoserver/lgsm/config-lgsm/csgoserver/csgoserver.cfg
 cp /home/csgoserver/wyha-server/officeserver.cfg /home/csgoserver/serverfiles/csgo/cfg/officeserver.cfg
