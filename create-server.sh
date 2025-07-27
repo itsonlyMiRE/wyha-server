@@ -48,6 +48,8 @@ mkdir ptah && cd ptah && \
 	unzip linux.zip && \
   	cp -r ./addons /home/csgoserver/serverfiles/csgo/ && \
    	cd .. && rm -rf ptah
+# choose not to follow guidelines
+sed -i 's/\("FollowCSGOServerGuidelines"[[:space:]]*"\)yes"/\1no"/' /home/csgoserver/serverfiles/csgo/addons/sourcemod/configs/core.cfg
   	
 
 ### pull server files ###
